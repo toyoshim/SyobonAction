@@ -2,8 +2,8 @@ About [repository](https://github.com/toyoshim/SyobonAction)
 ------------------------------------------------------------
 
 This forks [Open Syobon Action](http://sourceforge.net/projects/opensyobon/)
-to be built by Emscripten for running on the Web. You can play the game on
-web sites, and also play as a Chrome App in your desktop offline.
+to be built by Emscripten for running on the Web. You can play the game on a
+[web site](http://syobon.herokuapp.com/), and also play as a Chrome App in your desktop offline.
 You can install the App to Chrome from the
 [Chrome Web Store](https://chrome.google.com/webstore/detail/open-syobon-action/cecanjgmlmnmooioanbehaajhfoklkja).
 
