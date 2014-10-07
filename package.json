@@ -9,6 +9,7 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "express": "^4.9.5"
+    "express": "^4.9.5",
+    "logfmt": "^1.2.0"
   }
 }
