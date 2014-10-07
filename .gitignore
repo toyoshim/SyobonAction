@@ -1,3 +1,4 @@
+node_modules
 src/*.o
 src/*.js
 src/SyobonAction.*
