@@ -1,0 +1,14 @@
+CFLAGS	= -c -Os
+SyobonAction:main.o loadg.o DxLib.o
+	emcc main.o loadg.o DxLib.o -o SyobonAction.html --preload-file ../data@/ -s TOTAL_MEMORY=33554432 --llvm-lto 3 --memory-init-file 1 -s AGGRESSIVE_VARIABLE_ELIMINATION=1 -s LINKABLE=1
+	mv SyobonAction.js original.js
+	grep -v '^ var \$$' original.js > SyobonAction.js
+main.o:main.cpp
+	emcc $(CFLAGS) main.cpp -Wno-logical-op-parentheses
+loadg.o:loadg.cpp
+	emcc $(CFLAGS) loadg.cpp
+DxLib.o:DxLib.cpp
+	emcc $(CFLAGS) DxLib.cpp
+
+clean:
+	rm -rf *~ *.o SyobonAction.* original.js

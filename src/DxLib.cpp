@@ -8,7 +8,9 @@ void deinit();
 int DxLib_Init()
 {
     atexit(deinit);
+#ifndef EMSCRIPTEN
     setlocale(LC_CTYPE, "ja_JP.UTF-8");
+#endif
 
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 	fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
@@ -70,7 +72,11 @@ void SetFontSize(byte size)
 {
     fontsize = size;
     if (font[size] == NULL) {
+#ifdef EMSCRIPTEN
+	font[size] = TTF_OpenFont("Sans", size);
+#else
 	font[size] = TTF_OpenFont("res/sazanami-gothic.ttf", size);
+#endif
 	if (font[size] == NULL) {
 	    printf("Unable to load font: %s\n", TTF_GetError());
 	    exit(1);
@@ -175,6 +181,27 @@ byte CheckHitKey(int key)
     return keysHeld[key];
 }
 
+#ifdef EMSCRIPTEN
+static bool waiting = false;
+
+bool WaitKeyHelper()
+{
+    if (!waiting)
+        return true;
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    if (event.type == SDL_KEYDOWN) {
+        waiting = false;
+        return true;
+    }
+    return false;
+}
+
+void WaitKey()
+{
+    waiting = true;
+}
+#else
 byte WaitKey()
 {
     SDL_Event event;
@@ -184,6 +211,7 @@ byte WaitKey()
 		return event.key.keysym.sym;
     }
 }
+#endif
 
 /*Uint32 GetColor(byte r, byte g, byte b)
 {
@@ -266,7 +294,7 @@ SDL_Surface *LoadGraph(const char *filename)
 
 void PlaySoundMem(Mix_Chunk* s, int l)
 {
-    if(sound) Mix_PlayChannel(-1, s, l);
+    if(sound && s) Mix_PlayChannel(-1, s, l);
 }
 
 Mix_Chunk* LoadSoundMem(const char* f)

@@ -1,4 +1,20 @@
+#ifdef EMSCRIPTEN
+#include <emscripten/emscripten.h>
+#endif
 #include "main.h"
+
+#ifdef EMSCRIPTEN
+void loop() {
+    static bool skip = false;
+    if (!skip || (CheckHitKey(KEY_INPUT_SPACE) == 1)) {
+        maint = 0;
+        UpdateKeys();
+        if (WaitKeyHelper())
+            Mainprogram();
+    }
+    skip = !skip;
+}
+#endif
 
 // プログラムは WinMain から始まります
 //Changed to ansi c++ main()
@@ -17,6 +33,9 @@ int main(int argc, char *argv[])
 
 //ループ
 //for (maint=0;maint<=2;maint++){
+#ifdef EMSCRIPTEN
+    emscripten_set_main_loop(loop, 0, 1);
+#else
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
 	UpdateKeys();
 	maint = 0;
@@ -27,6 +46,7 @@ int main(int argc, char *argv[])
 
 //ＤＸライブラリ使用の終了処理
     end();
+#endif
 }
 
 //メイン描画
@@ -1015,13 +1035,18 @@ void rpaint()
 		tmsgy = 0;
 		tmsgtype = 3;
 		tmsgtm = 15 + 1;
+#ifdef EMSCRIPTEN
+		WaitKey();
+#endif
 	    }
 
 	    else if (tmsgtype == 3) {
 		xx[0] = 1200;
 		tmsgy += xx[0];
+#ifndef EMSCRIPTEN
 		if (tmsgtm == 15)
 		    WaitKey();
+#endif
 		if (tmsgtm == 1) {
 		    tmsgtm = 0;
 		    tmsgtype = 0;
@@ -4489,7 +4514,9 @@ if (atype[t]==133){msoubi=4;}
     if (CheckHitKey(KEY_INPUT_SPACE) == 1) {
 	xx[0] = 60;
     }
+#ifndef EMSCRIPTEN
     wait2(stime, long (GetNowCount()), 1000 / xx[0]);
+#endif
 
 //wait(20);
 
@@ -4731,8 +4758,10 @@ void deinit()
     SDL_JoystickClose(joystick);
 
 //Close libraries
+#ifndef EMSCRIPTEN
     IMG_Quit();
     TTF_Quit();
+#endif
     Mix_Quit();
     SDL_Quit();
 }
@@ -10408,6 +10437,8 @@ void bgmchange(Mix_Music * x)
     Mix_HaltMusic();
 //otom[0]=0;
     otom[0] = x;
+    if (!x)
+        return;
     Mix_PlayMusic(otom[0], -1);;
     if(x == otom[2]) Mix_VolumeMusic(MIX_MAX_VOLUME * 40 / 100);
     else Mix_VolumeMusic(MIX_MAX_VOLUME * 50 / 100);

@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string>
+#include <stdlib.h>
 
 #include "joyconfig.h"
 
@@ -78,7 +79,12 @@ extern SDL_Joystick* joystick;
 void UpdateKeys();
 byte ProcessMessage();
 byte CheckHitKey(int key);
+#ifdef EMSCRIPTEN
+bool WaitKeyHelper();
+void WaitKey();
+#else
 byte WaitKey();
+#endif
 
 #define GetColor(r, g, b) SDL_MapRGB(screen->format, r, g, b)
 
