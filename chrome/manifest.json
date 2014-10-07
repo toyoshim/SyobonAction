@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Open Syobon Action",
+  "short_name": "Open Syobon Action",
+  "description": "Syobon Action is developed by ちく, revised by 大川和樹, and Open Syobon Action is developed by Mathew Velasquez.",
+
+  "version": "0.9.2.0",
+
+  "icons": {
+    "16": "assets/icon_16.png",
+    "128": "assets/icon_128.png"
+  },
+
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  }
+}
