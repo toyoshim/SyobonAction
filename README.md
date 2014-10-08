@@ -1,4 +1,4 @@
-About [repository](https://github.com/toyoshim/SyobonAction)
+About This [Repository](https://github.com/toyoshim/SyobonAction)
 ------------------------------------------------------------
 
 This forks [Open Syobon Action](http://sourceforge.net/projects/opensyobon/)
@@ -23,11 +23,10 @@ Open Syobon Action is a cross-platform port of the unforgiving Japanese parody o
 Super Mario Bros..
 
 Controls:
-
-Z, Up - Jump
-Left, Right - Movement
-Down - Enter warp pipe
-0-9 (On menu) - Level Select
+ * Z, Up - Jump
+ * Left, Right - Movement
+ * Down - Enter warp pipe
+ * 0-9 (On menu) - Level Select
 
 
 Important Notice
