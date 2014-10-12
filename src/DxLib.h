@@ -34,6 +34,9 @@ void PlaySoundMem(Mix_Chunk* s, int l);
 Mix_Chunk* LoadSoundMem(const char* f);
 Mix_Music* LoadMusicMem(const char* f);
 #define CheckSoundMem(s) !s
+#ifdef EMSCRIPTEN
+void TSS_Play(int, void* c, int loops);
+#endif
 
 int DxLib_Init();
 

@@ -4,7 +4,60 @@
     <title>Syobon Action</title>
   </head>
   <body style="margin: 0; cursor: none; width: 480px; height: 420px">
+    <script type="text/x-tss" id="jump">
+#TITLE <jump>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @6 s4,2 o5 a64
+#END
+    </script>
+    <script type="text/x-tss" id="brockbreak">
+#TITLE <brockbreak>
+#CHANNEL 2
+#A t100 x17,1 v15 @4 s6,16 o3 l64 cg
+#B x17,1 v15 %2 s2,-48 o4 l64 cr)dr)cr)dr)cr)dr
+#END
+    </script>
+    <script type="text/x-tss" id="brockcoin">
+#TITLE <brockcoin>
+#CHANNEL 2
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s1 o6 l64 er64 br1
+#B x17,1 v15 s4,8 o3 r32 g64
+#END
+    </script>
+    <script type="text/x-tss" id="humi">
+#TITLE <humi>
+#TABLE 0,<(0,127),8>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t150 x17,1 v10 @4 s8,8 na0,1 o5 l128 gr16 br16 na0,0
+#END
+    </script>
+    <script type="text/x-tss" id="koura">
+#TITLE <koura>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s16,-1 o5 l512 k-4 br32.< s16,0 er32.
+#END
+    </script>
+    <script type="text/x-tss" id="brockkinoko">
+#TITLE <brockkinoko>
+#CHANNEL 2
+#PRAGMA FAMICOM
+#A t100 x17,1 v13 @4 s1,-64 o3 l96 f+<f+<f+>>r g<g<g>>r g+<g+<g+>>r a<a<a>>r a+<a+<a+>>r b<b<b>>r s0,0
+#B x17,1 v15 s4,8 o3 r32 g64
+#END
+    </script>
+    <script type="text/x-tss" id="coin">
+#TITLE <coin>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s1 o6 l64 er64 br1
+#END
+    </script>
     <canvas class="emscripten" id="canvas"></canvas>
+    <script type="text/javascript" src="chime-0.94.2.min.js"></script>
     <script type="text/javascript" src="module.js"></script>
     <script async type="text/javascript" src="SyobonAction.js"></script>
   </body>

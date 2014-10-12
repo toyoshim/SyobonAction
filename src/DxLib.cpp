@@ -1,5 +1,19 @@
 #include "DxLib.h"
 
+#ifdef EMSCRIPTEN
+#include "emscripten.h"
+
+int TSS_id = 1;
+int TSS_Load(const char* fname) {
+    fprintf(stderr, "map file %s to %d\n", fname, TSS_id);
+    return TSS_id++;
+}
+void TSS_Play(int channel, void* c, int loops) {
+    int id = (int)c;
+    EM_ASM_INT({PlaySound($0)}, id);
+}
+#endif
+
 SDL_Joystick* joystick;
 
 bool keysHeld[SDLK_LAST];
@@ -294,14 +308,25 @@ SDL_Surface *LoadGraph(const char *filename)
 
 void PlaySoundMem(Mix_Chunk* s, int l)
 {
-    if(sound && s) Mix_PlayChannel(-1, s, l);
+    if (!sound || !s)
+      return;
+#ifdef EMSCRIPTEN
+    TSS_Play(-1, s, l);
+#else
+    Mix_PlayChannel(-1, s, l);
+#endif
 }
+
 
 Mix_Chunk* LoadSoundMem(const char* f)
 {
     if(!sound) return NULL;
 
+#ifdef EMSCRIPTEN
+    Mix_Chunk* s = (Mix_Chunk*)TSS_Load(f);
+#else
     Mix_Chunk* s = Mix_LoadWAV(f);
+#endif
     if(s) return s;
     fprintf(stderr, "Error: Unable to load sound %s: %s\n", f, Mix_GetError());
     return NULL;
@@ -311,7 +336,11 @@ Mix_Music* LoadMusicMem(const char* f)
 {
     if(!sound) return NULL;
 
+#ifdef EMSCRIPTEN
+    Mix_Music* m = (Mix_Music*)TSS_Load(f);
+#else
     Mix_Music* m = Mix_LoadMUS(f);
+#endif
     if(m) return m;
     fprintf(stderr, "Error: Unable to load music %s: %s\n", f, Mix_GetError());
     return NULL;

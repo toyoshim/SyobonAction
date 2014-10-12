@@ -10439,7 +10439,11 @@ void bgmchange(Mix_Music * x)
     otom[0] = x;
     if (!x)
         return;
+#ifdef EMSCRIPTEN
+    TSS_Play(0, otom[0], 0);
+#else
     Mix_PlayMusic(otom[0], -1);;
+#endif
     if(x == otom[2]) Mix_VolumeMusic(MIX_MAX_VOLUME * 40 / 100);
     else Mix_VolumeMusic(MIX_MAX_VOLUME * 50 / 100);
 }				//bgmchange()
