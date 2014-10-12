@@ -10,7 +10,7 @@ int TSS_Load(const char* fname) {
 }
 void TSS_Play(int channel, void* c, int loops) {
     int id = (int)c;
-    EM_ASM_INT({PlaySound($0)}, id);
+    EM_ASM_INT({PlaySound($0, $1)}, id, channel);
 }
 #endif
 

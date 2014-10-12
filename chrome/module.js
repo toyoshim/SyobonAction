@@ -21,16 +21,24 @@ function LoadSound(index, id) {
   chimeSounds[index] = new chime.Sound(data.text);
 }
 
-function PlaySound(index) {
+function PlaySound(index, channel) {
   if (!chimeSounds[index]) {
     console.error('missing sound: ' + index);
     return;
   }
-  chime.effect(chimeSounds[index]);
+  if (channel == 0)
+    chime.bgm(chimeSounds[index]);
+  else
+    chime.effect(chimeSounds[index]);
 }
 
 
 (function () {
+  LoadSound(1, 'field');
+  LoadSound(2, 'dungeon');
+  LoadSound(3, 'star4');
+  LoadSound(4, 'castle');
+  LoadSound(5, 'puyo');
   LoadSound(6, 'jump');
   LoadSound(7, 'brockbreak');
   LoadSound(8, 'brockcoin');
