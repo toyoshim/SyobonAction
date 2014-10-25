@@ -136,6 +136,26 @@
 #A t200 %2 v10 s2,-1 l16 q1 o0 cg s2,0f
 #END
     </script>
+    <script type="text/x-tss" id="hintBlock">
+#TITLE <hintBlock>
+#CHANNEL 3
+#A t140 x17,1 v13 %4 q1 o7 l16 s1,0 k3 gb<dg
+#B x17,1 v14 %4 q1 o9 l16 s3,0 k8 gb<dg
+#C x17,1 v12 %4 q1 o8 l16 s2,0 k0 gb<dg
+#END
+    </script>
+    <script type="text/x-tss" id="death">
+#TITLE <death>
+#CHANNEL 3
+#PRAGMA FAMICOM
+#A t200 x17,1 v15 @4 q4 o5 l32 s6,-16 aaa<s3,-8cr s0,0r r4
+#B r4..
+#C r4..
+#A x17,1 v14 @4 q12 o5 l8 s4,0 bgrggg<drc
+#B x17,1 v13 @4 q1 o5 l8 s4,-32 bgrgggbr<cerec
+#C x17,1 v13 q14 o3 l8 s8,0 grrgggab<cr>grcr
+#END
+    </script>
     <canvas class="emscripten" id="canvas"></canvas>
     <script type="text/javascript" src="chime-0.94.2.min.js"></script>
     <script type="text/javascript" src="module.js"></script>
