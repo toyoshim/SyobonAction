@@ -34,6 +34,7 @@ function PlaySound(index, channel) {
 
 
 (function () {
+  LoadSound(0, 'stop');
   LoadSound(1, 'field');
   LoadSound(2, 'dungeon');
   LoadSound(3, 'star4');

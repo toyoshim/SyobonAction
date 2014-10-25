@@ -4,6 +4,9 @@
 #include "main.h"
 
 #ifdef EMSCRIPTEN
+
+#define Mix_HaltMusic() TSS_Play(0, NULL, 0)
+
 void loop() {
     static bool skip = false;
     if (!skip || (CheckHitKey(KEY_INPUT_SPACE) == 1)) {

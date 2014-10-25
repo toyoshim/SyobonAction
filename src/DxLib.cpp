@@ -308,11 +308,11 @@ SDL_Surface *LoadGraph(const char *filename)
 
 void PlaySoundMem(Mix_Chunk* s, int l)
 {
-    if (!sound || !s)
-      return;
 #ifdef EMSCRIPTEN
     TSS_Play(-1, s, l);
 #else
+    if (!sound || !s)
+      return;
     Mix_PlayChannel(-1, s, l);
 #endif
 }
@@ -320,11 +320,11 @@ void PlaySoundMem(Mix_Chunk* s, int l)
 
 Mix_Chunk* LoadSoundMem(const char* f)
 {
-    if(!sound) return NULL;
 
 #ifdef EMSCRIPTEN
     Mix_Chunk* s = (Mix_Chunk*)TSS_Load(f);
 #else
+    if(!sound) return NULL;
     Mix_Chunk* s = Mix_LoadWAV(f);
 #endif
     if(s) return s;
@@ -334,11 +334,11 @@ Mix_Chunk* LoadSoundMem(const char* f)
 
 Mix_Music* LoadMusicMem(const char* f)
 {
-    if(!sound) return NULL;
 
 #ifdef EMSCRIPTEN
     Mix_Music* m = (Mix_Music*)TSS_Load(f);
 #else
+    if(!sound) return NULL;
     Mix_Music* m = Mix_LoadMUS(f);
 #endif
     if(m) return m;
