@@ -13,16 +13,21 @@
 #TITLE <field>
 #WAV 0, <(0,112),8,(127,16),8,(0,-112),8,(-128,-16),8>
 #CHANNEL 4
-#A t100 x17,1 v15 %1 @4 s16 o6 l16 q12 $
-#B x17,1 v13 %1 @6 s16 o5 l16 q12 $
-#C x17,1 v14 %3 @0 o4 l16 q12 $
-#D x17,1 v12 %2 s32 o5 l16 $
+#A t100 x17,1 v15 %1 @4 s16 o6 l16 q12
+#B x17,1 v13 %1 @6 s16 o5 l16 q12
+#C x17,1 v14 %3 @0 o4 l16 q12
+#D x17,1 v12 %2 s32 o5 l16
 
 { //// I //// }
 #A eererererereree8 gr8.gr8grggggr8.
 #B f+f+rf+rf+rf+rf+rf+rf+f+8 gr8.dr8>grgggg <<< s2q1 @7 dg8
 #C ddrdrdrdrdrdrdd8 gr8.dr8>grggggrgr<
 #D q8cr >q2c< q8cr >q2c< q8c >q2c< r >q2c< q8c >q2c< r >q2c< q8cr >q2c< r >q2c q2c< q8c r >q2c q2c< r q8cq8c >q2c< q8c >q2c< q8c >q2c<
+
+#A $ v15 %1 @4 s16 o6 l16 q10
+#B $ v13 %1 @6 s16 o5 l16 q10
+#C $ v14 %3 @0 o4 l16 q12
+#D $ v12 %2 s32 o5 l16
 
 { //// A //// }
 #A s8 r8ed+egrargrercr>g ar<crcrcdd+drc8<<))cc((>>r16
@@ -41,9 +46,20 @@
 #C cr8er8gr cr8er8>gr f+r8ar8<dr> f+r8ar8f+r<
 #D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
 
-#A r8ed+egrargrercr>g ar8<cd+drc <<q4))c<c>c<c>((r4
-#B r8 gf+g<cr ercr>grerc <cr8.>ggre <<q4))b<b>b<b>((r4
+#A r8ed+egrargrercr>g ar8<cd+drc <<q4))c<c>c<c>((r4>>
+#B r8 gf+g<cr ercr>grerc <cr8.>ggre <<q4))b<b>b<b>((r4>>
 #C cr8er8gr cr8ere>gr dr8f+r8dr <cf+rgr8>gr<
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+{ //// B //// }
+#A @4 s8 q8 >a<rcc8c>ba gr<cc8<b64<c32.cr >>>fefefgag8.eg8<<b64<c32.>cr>
+#B @6 s8 q6 {fraa8agf ergg8<ggr> dcdcdefe8.ce8<c>bb-} f8ra8agf e8.c8.g8 dcdcdef8 e8.g8.e8
+#C fr8ar8fr er8gr8<c>r dr8ar8fr er8gr8er
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+#A @4 s8 q8 >a<rcc4>r ar<cc4>r babab<crdrgrggr8.
+#B @6 s8 q6 f8.a8.f8 f+8.a8.f+8 gfgfgarbr <drdd>r8.
+#C fr8ar8fr f+r8ar8<c>r gr8br8<d>r rgrggr>g<r
 #D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
 
 #END

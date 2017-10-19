@@ -16,20 +16,26 @@ function LoadSound(index, id) {
   data = document.getElementById(id);
   if (!data) {
     console.error('failed to assign ' + id + ' to ' + index);
+    chimeSounds[index] = {
+      name: id
+    };
     return;
   }
-  chimeSounds[index] = new chime.Sound(data.text);
+  chimeSounds[index] = {
+    data: new chime.Sound(data.text),
+    name: id
+  };
 }
 
 function PlaySound(index, channel) {
-  if (!chimeSounds[index]) {
-    console.error('missing sound: ' + index);
+  if (!chimeSounds[index].data) {
+    console.error('missing sound: ' + index + ' ' + chimeSounds[index].name);
     return;
   }
   if (channel == 0)
-    chime.bgm(chimeSounds[index]);
+    chime.bgm(chimeSounds[index].data);
   else
-    chime.effect(chimeSounds[index]);
+    chime.effect(chimeSounds[index].data);
 }
 
 
