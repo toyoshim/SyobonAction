@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Syobon Action</title>
+  </head>
+  <body style="margin: 0; cursor: none; width: 480px; height: 420px">
+    <script type="text/x-tss" id="stop">
+#TITLE <stop>
+#CHANNEL 1
+#A r
+    </script>
+    <script type="text/x-tss" id="field">
+#TITLE <field>
+#WAV 0, <(0,112),8,(127,16),8,(0,-112),8,(-128,-16),8>
+#CHANNEL 4
+#A t100 x17,1 v15 %1 @4 s16 o6 l16 q12 $
+#B x17,1 v13 %1 @6 s16 o5 l16 q12 $
+#C x17,1 v14 %3 @0 o4 l16 q12 $
+#D x17,1 v12 %2 s32 o5 l16 $
+
+{ //// I //// }
+#A eererererereree8 gr8.gr8grggggr8.
+#B f+f+rf+rf+rf+rf+rf+rf+f+8 gr8.dr8>grgggg <<< s2q1 @7 dg8
+#C ddrdrdrdrdrdrdd8 gr8.dr8>grggggrgr<
+#D q8cr >q2c< q8cr >q2c< q8c >q2c< r >q2c< q8c >q2c< r >q2c< q8cr >q2c< r >q2c q2c< q8c r >q2c q2c< r q8cq8c >q2c< q8c >q2c< q8c >q2c<
+
+{ //// A //// }
+#A s8 r8ed+egrargrercr>g ar<crcrcdd+drc8<<))cc((>>r16
+#B @6 s8 q8 r8 o5gf+g<cr ercr>grerc frararab<c>bra8<<))bb((>>r16
+#C cr8er8gr cr8er8>gr f+r8ar8<dr> f+r8ar8f+r<
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+#A r8ed+egrargrercr>g ar8<cd+drc4^16r4
+#B r8 gf+g<cr ercr>grerc e-r8fgfrq15e <<s2q1@7 c<c>c<c>>>>>@6 s1,1 gr8. q8s8
+#C cr8er8gr cr8ere>gr dr8f+r8dr cr8gr8>gr<<
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+{ //// A' //// }
+#A s8 r8ed+egrargrercr>g ar<crcrcdd+drc8<<))cc((>>r16
+#B @6 s8 q8 r8 o5gf+g<cr ercr>grerc frararab<c>bra8<<))bb((>>r16
+#C cr8er8gr cr8er8>gr f+r8ar8<dr> f+r8ar8f+r<
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+#A r8ed+egrargrercr>g ar8<cd+drc <<q4))c<c>c<c>((r4
+#B r8 gf+g<cr ercr>grerc <cr8.>ggre <<q4))b<b>b<b>((r4
+#C cr8er8gr cr8ere>gr dr8f+r8dr <cf+rgr8>gr<
+#D /:4 >q2cr< >q2c12 q2c24< q8cr >q2c12 q2c24< :/
+
+#END
+    </script>
+    <script type="text/x-tss" id="jump">
+#TITLE <jump>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @6 s4,2 o5 a64
+#END
+    </script>
+    <script type="text/x-tss" id="brockbreak">
+#TITLE <brockbreak>
+#CHANNEL 2
+#A t100 x17,1 v15 @4 s6,16 o3 l64 cg
+#B x17,1 v15 %2 s2,-48 o4 l64 cr)dr)cr)dr)cr)dr
+#END
+    </script>
+    <script type="text/x-tss" id="brockcoin">
+#TITLE <brockcoin>
+#CHANNEL 2
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s1 o6 l64 br64 <er1
+#B x17,1 v15 s4,8 o3 r32 g64
+#END
+    </script>
+    <script type="text/x-tss" id="humi">
+#TITLE <humi>
+#TABLE 0,<(0,127),8>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t150 x17,1 v10 @4 s8,8 na0,1 o5 l128 gr16 br16 na0,0
+#END
+    </script>
+    <script type="text/x-tss" id="koura">
+#TITLE <koura>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s16,-1 o5 l512 k-4 br32.< s16,0 er32.
+#END
+    </script>
+    <script type="text/x-tss" id="dokan">
+#TITLE <dokan>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t130 x17,1 v15 @4 s3,-96 o6 l96 q4 [3 b>b<a>a<b>ba>a<<r16 ] s0,0
+#END
+    </script>
+    <script type="text/x-tss" id="powerup">
+#TITLE <powerup>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t250 x17,1 v15 @4 s8,0 o4 l64 q12 [3c<c>e<e>g<g]>>> [3d<d>f<f>a<a]>>> [3e<e>g<g>b<b]
+#END
+    </script>
+    <script type="text/x-tss" id="kirra">
+#TITLE <kirra>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t250 x17,1 v15 @4 s1,-32 o4 l64 q1 >d8<d4
+#END
+    </script>
+    <script type="text/x-tss" id="brockkinoko">
+#TITLE <brockkinoko>
+#CHANNEL 2
+#PRAGMA FAMICOM
+#A t100 x17,1 v13 @4 s1,-64 o3 l96 f+<f+<f+>>r g<g<g>>r g+<g+<g+>>r a<a<a>>r a+<a+<a+>>r b<b<b>>r s0,0
+#B x17,1 v15 s4,8 o3 r32 g64
+#END
+    </script>
+    <script type="text/x-tss" id="coin">
+#TITLE <coin>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t100 x17,1 v15 @4 s1 o6 l64 br64 <er1
+#END
+    </script>
+    <script type="text/x-tss" id="Pswitch">
+#TITLE <Pswitch>
+#CHANNEL 1
+#PRAGMA FAMICOM
+#A t200 x17,1 v15 @6 s2,16 o7 l16 q1 e-e-e-
+#END
+    </script>
+    <script type="text/x-tss" id="jumpBlock">
+#TITLE <jumpBlock>
+#CHANNEL 2
+#A t200 x17,1 v15 @6 s8,64 o3 l32 q1 cc
+#B %2 v10 s64,64 q1 o6 c16
+#END
+    </script>
+    <script type="text/x-tss" id="tekifire">
+#TITLE <tekifire>
+#CHANNEL 1
+#A t200 %2 v10 s2,-1 l16 q1 o0 cg s2,0f
+#END
+    </script>
+    <script type="text/x-tss" id="hintBlock">
+#TITLE <hintBlock>
+#CHANNEL 3
+#A t140 x17,1 v13 %4 q1 o7 l16 s1,0 k3 gb<dg
+#B x17,1 v14 %4 q1 o9 l16 s3,0 k8 gb<dg
+#C x17,1 v12 %4 q1 o8 l16 s2,0 k0 gb<dg
+#END
+    </script>
+    <script type="text/x-tss" id="death">
+#TITLE <death>
+#CHANNEL 3
+#PRAGMA FAMICOM
+#A t200 x17,1 v15 @4 q4 o5 l32 s6,-16 aaa<s3,-8cr s0,0r r4
+#B r4..
+#C r4..
+#A x17,1 v14 @4 q12 o5 l8 s4,0 bgrggg<drc
+#B x17,1 v13 @4 q1 o5 l8 s4,-32 bgrgggbrgerec
+#C x17,1 v13 q14 o3 l8 s8,0 grrgggab<cr>grcr
+#END
+    </script>
+    <canvas class="emscripten" id="canvas"></canvas>
+    <script type="text/javascript" src="chime-0.94.2.min.js"></script>
+    <script type="text/javascript" src="module.js"></script>
+    <script async type="text/javascript" src="SyobonAction.js"></script>
+  </body>
+</html>
