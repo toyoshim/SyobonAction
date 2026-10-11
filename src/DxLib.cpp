@@ -132,8 +132,13 @@ void DrawFormatString(int a, int b, Uint32 color, const char *str, ...)
     va_copy(args_copy, args);
     int len = vsnprintf(NULL, 0, str, args_copy);
     va_end(args_copy);
-    char *newstr = new char[len + 1];
-    vsnprintf(newstr, len + 1, str, args);
+    if (len < 0) {
+        va_end(args);
+        return;
+    }
+    const size_t buffer_size = static_cast<size_t>(len) + 1;
+    char *newstr = new char[buffer_size];
+    vsnprintf(newstr, buffer_size, str, args);
     va_end(args);
     DrawString(a, b, newstr, color);
     delete[] newstr;
